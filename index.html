@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Luberon Harmony — L’harmonie du service, la douceur du Sud</title>
+  <meta name="description" content="Luberon Harmony — Conciergerie trilingue (FR/EN/NL) pour villas et locations dans le Luberon. Contact : +32 492 02 33 02" />
+  <style>
+    :root{
+      --lavender: #A78BFA;
+      --sage: #9FBF9A;
+      --beige: #FAF5EE;
+      --brown: #7A5A48;
+      --muted:#6b6b6b;
+      --card:#ffffff;
+      --maxwidth:1100px;
+      --radius:12px;
+      --shadow: 0 6px 20px rgba(17,17,17,0.08);
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:linear-gradient(180deg,var(--beige),#fff);color:#222;line-height:1.5}
+    .container{max-width:var(--maxwidth);margin:0 auto;padding:20px}
+    header{display:flex;align-items:center;justify-content:space-between;padding:10px 0}
+    .brand{display:flex;align-items:center;gap:14px}
+    .logo img{width:72px;height:72px;border-radius:12px;object-fit:cover;box-shadow:var(--shadow);background:white;padding:6px}
+    .title{line-height:1}
+    .title h1{margin:0;font-size:1.25rem;color:var(--brown);letter-spacing:0.2px}
+    .title .slogan{font-size:0.9rem;color:#5b463b;margin-top:4px;font-weight:600}
+    .title .location{font-size:0.8rem;color:var(--muted);margin-top:2px}
+    nav{display:flex;gap:12px;align-items:center}
+    nav .contacts{display:flex;gap:10px;align-items:center}
+    nav .contacts a{background:transparent;border-radius:8px;padding:6px 10px;text-decoration:none;color:var(--brown);font-weight:700}
+    .lang-switch{display:flex;gap:6px;margin-left:12px}
+    .lang-switch button{background:transparent;border:1px solid rgba(0,0,0,0.04);padding:8px 10px;border-radius:8px;font-weight:700;cursor:pointer}
+    .lang-switch button.active{background:linear-gradient(180deg,rgba(167,139,250,0.12),rgba(159,191,154,0.06))}
+    .hero{display:grid;grid-template-columns:1fr;gap:18px;align-items:center;padding:18px 0}
+    .hero-card{background:var(--card);padding:22px;border-radius:var(--radius);box-shadow:var(--shadow)}
+    h2{margin:0 0 8px;color:var(--brown)}
+    p.lead{color:var(--muted);margin:8px 0 14px}
+    .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+    .tag{background:linear-gradient(180deg,rgba(167,139,250,0.12),rgba(159,191,154,0.06));padding:6px 10px;border-radius:999px;border:1px solid rgba(0,0,0,0.04);font-weight:700;font-size:0.85rem;color:var(--brown)}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:12px}
+    .service{background:var(--card);padding:14px;border-radius:12px;box-shadow:var(--shadow);border-left:4px solid rgba(167,139,250,0.12)}
+    .price{font-weight:800;color:var(--lavender)}
+    .contact-card{display:grid;grid-template-columns:1fr;gap:10px}
+    .about{display:flex;gap:14px;align-items:center}
+    .about img{width:120px;height:120px;border-radius:12px;object-fit:cover;box-shadow:var(--shadow);border:4px solid rgba(255,255,255,0.6)}
+    form{display:grid;grid-template-columns:1fr;gap:10px}
+    label{font-size:0.9rem;color:#333}
+    input,textarea,select{width:100%;padding:10px;border-radius:8px;border:1px solid #e6e6e6;font-size:0.95rem}
+    .cta{display:inline-block;background:var(--lavender);color:white;padding:10px 16px;border-radius:10px;text-decoration:none;font-weight:700;border:none;cursor:pointer}
+    footer{padding:20px 0;color:var(--muted);font-size:0.9rem;margin-top:18px;border-top:1px solid rgba(0,0,0,0.03)}
+    .meta{font-size:0.85rem;color:var(--muted);margin-top:8px}
+    @media(min-width:900px){
+      .hero{grid-template-columns:1fr 380px}
+      .contact-card{grid-template-columns:1fr 320px}
+      form{grid-template-columns:1fr 320px}
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="site" data-lang="fr">
+    <header>
+      <div class="brand">
+        <div class="logo"><img src="logo.png" alt="Luberon Harmony logo" /></div>
+        <div class="title">
+          <h1 id="brand-name">Luberon Harmony</h1>
+          <div class="slogan" id="brand-slogan">L’harmonie du service, la douceur du Sud</div>
+          <div class="location" id="brand-location">Provence – Luberon</div>
+        </div>
+      </div>
+      <nav>
+        <div class="contacts">
+          <a href="tel:+32492023302" aria-label="Téléphone">📞&nbsp;<span style="white-space:nowrap">+32&nbsp;492&nbsp;02&nbsp;33&nbsp;02</span></a>
+          <a href="mailto:contact@luberonharmony.fr" aria-label="Email">✉️&nbsp;contact@luberonharmony.fr</a>
+        </div>
+        <div class="lang-switch" role="tablist" aria-label="Langues">
+          <button class="active" data-lang="fr">FR</button>
+          <button data-lang="en">EN</button>
+          <button data-lang="nl">NL</button>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-card">
+          <h2 id="hero-title">Services de conciergerie professionnels pour propriétaires & voyageurs</h2>
+          <p class="lead" id="hero-lead">Accueil, gestion de locations saisonnières, ménage, transferts, coordination des prestataires et entretien — service trilingue (FR / EN / NL) et disponibilité immédiate dans le Luberon et la Provence.</p>
+
+          <div class="tags" aria-hidden="true">
+            <span class="tag">Accueil voyageurs</span>
+            <span class="tag">Ménage & linge</span>
+            <span class="tag">Maintenance</span>
+            <span class="tag">Transferts</span>
+          </div>
+
+          <div style="margin-top:16px">
+            <a class="cta" href="#contact">Demander un devis</a>
+          </div>
+
+          <div class="meta">
+            <strong>Trilingue :</strong> Français — Anglais — Néerlandais • <strong>Disponibilité :</strong> immédiate
+          </div>
+        </div>
+
+        <aside class="hero-card">
+          <div>
+            <h3 id="why-title">Pourquoi me choisir ?</h3>
+            <ul style="margin:6px 0 0 18px;color:var(--muted)">
+              <li id="bullet-1">Minutie & sens du détail</li>
+              <li id="bullet-2">Respect des délais et des consignes</li>
+              <li id="bullet-3">Relation claire avec propriétaires & voyageurs</li>
+              <li id="bullet-4">Réseau local de prestataires de confiance</li>
+            </ul>
+          </div>
+          <div style="margin-top:12px">
+            <h3 id="zone-title">Zone d'intervention</h3>
+            <p class="small" id="zone-text">Luberon, Gordes, Roussillon, Bonnieux, Ménerbes, Apt, Cadenet, Lourmarin et communes alentours.</p>
+          </div>
+          <div style="margin-top:12px">
+            <h3 id="contact-title">Contact rapide</h3>
+            <p style="margin:6px 0"><strong>Téléphone :</strong> <a href="tel:+32492023302">+32&nbsp;492&nbsp;02&nbsp;33&nbsp;02</a></p>
+            <p style="margin:0"><strong>Email :</strong> <a href="mailto:contact@luberonharmony.fr">contact@luberonharmony.fr</a></p>
+          </div>
+        </aside>
+      </section>
+
+      <section id="services" style="margin-top:18px">
+        <h2 data-key="services-title">Prestations</h2>
+        <div class="grid">
+          <div class="service">
+            <h3 data-key="s1-title">Accueil & check‑in</h3>
+            <p class="small" data-key="s1-text">Remise des clés, présentation du logement, état des lieux d’arrivée, assistance bilingue/trilingue.</p>
+          </div>
+          <div class="service">
+            <h3 data-key="s2-title">Ménage & préparation</h3>
+            <p class="small" data-key="s2-text">Ménage professionnel, linge, pliage, produits d’accueil, préparation entre arrivées.</p>
+          </div>
+          <div class="service">
+            <h3 data-key="s3-title">Gestion complète de location</h3>
+            <p class="small" data-key="s3-text">Gestion des réservations, communications, coordination des prestataires et gestion des imprévus.</p>
+          </div>
+          <div class="service">
+            <h3 data-key="s4-title">Maintenance & jardin</h3>
+            <p class="small" data-key="s4-text">Suivi des réparations, visites de contrôle, entretien piscine et jardin via partenaires.</p>
+          </div>
+          <div class="service">
+            <h3 data-key="s5-title">Transferts & courses</h3>
+            <p class="small" data-key="s5-text">Transferts gare/aéroport, courses d’arrivée, kits de bienvenue pour vos invités.</p>
+          </div>
+          <div class="service">
+            <h3 data-key="s6-title">Services à la carte</h3>
+            <p class="small" data-key="s6-text">Blanchisserie, petits achats, gestion d’événements, secrétariat administratif.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="tarifs" style="margin-top:22px">
+        <h2 data-key="pricing-title">Tarifs indicatifs</h2>
+        <p class="small" data-key="pricing-lead">Les tarifs ci‑dessous sont des exemples indicatifs — chaque bien et demande est unique. Contactez‑moi pour un devis personnalisé.</p>
+        <div style="margin-top:8px">
+          <div style="display:grid;gap:10px">
+            <div class="service" style="display:flex;justify-content:space-between;align-items:center">
+              <div><strong data-key="p1-title">Accueil / check‑in</strong><div class="small" data-key="p1-sub">Remise clés + accueil (jour)</div></div>
+              <div class="price">40–60 €</div>
+            </div>
+            <div class="service" style="display:flex;justify-content:space-between;align-items:center">
+              <div><strong data-key="p2-title">Ménage standard</strong><div class="small" data-key="p2-sub">Studio 0–50 m²</div></div>
+              <div class="price">60–80 €</div>
+            </div>
+            <div class="service" style="display:flex;justify-content:space-between;align-items:center">
+              <div><strong data-key="p3-title">Ménage villa</strong><div class="small" data-key="p3-sub">50–120 m² (selon prestation)</div></div>
+              <div class="price">90–220 €</div>
+            </div>
+            <div class="service" style="display:flex;justify-content:space-between;align-items:center">
+              <div><strong data-key="p4-title">Transfert gare / aéroport</strong><div class="small" data-key="p4-sub">Tarif selon distance et horaires</div></div>
+              <div class="price">70–150 €</div>
+            </div>
+            <div class="service" style="display:flex;justify-content:space-between;align-items:center">
+              <div><strong data-key="p5-title">Gestion complète</strong><div class="small" data-key="p5-sub">Forfait / % du loyer selon volume</div></div>
+              <div class="price">15–25 % / À partir de 1 000 € / mois</div>
+            </div>
+          </div>
+        </div>
+        <p class="small" style="margin-top:12px" data-key="pricing-note">Majoration possible pour arrivées tardives, jours fériés ou interventions d'urgence.</p>
+      </section>
+
+      <section id="about" style="margin-top:22px">
+        <h2 data-key="about-title">À propos</h2>
+        <div class="hero-card about">
+          <img src="carole.jpg" alt="Photo de Carole Meyfroid" />
+          <div>
+            <h3>Carole Meyfroid — Fondatrice</h3>
+            <p class="small" data-key="about-fr">À 40 ans, Belge d’origine mais profondément attachée à la Provence, je suis passionnée par le calme, la beauté et l’art de vivre de cette région. Avec Luberon Harmony, j’allie rigueur et sens du service à une approche humaine et soignée, pour offrir à chaque propriétaire et voyageur une expérience unique, fluide et chaleureuse.</p>
+            <p style="margin-top:8px"><em data-key="about-slogan">L’harmonie du service, la douceur du Sud</em></p>
+          </div>
+        </div>
+      </section>
+
+      <section id="testimonials" style="margin-top:22px">
+        <h2 data-key="testi-title">Témoignages</h2>
+        <div class="grid">
+          <div class="service">
+            <strong>Pauline — Propriétaire à Gordes</strong>
+            <p class="small">"Accueil impeccable et communication parfaite — nos voyageurs sont toujours ravis."</p>
+          </div>
+          <div class="service">
+            <strong>Mark — Hôte international</strong>
+            <p class="small">"Service réactif, multi-lingue, et très fiable pour gérer plusieurs villas."</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" style="margin-top:22px">
+        <h2 data-key="contact-title">Contact & Demande de devis</h2>
+        <p class="small" data-key="contact-lead">Envoyez vos informations et je vous répondrai rapidement avec une proposition adaptée.</p>
+
+        <form class="hero-card contact-card" onsubmit="event.preventDefault(); alert('Merci — votre message a été simulé (formulaire non connecté).');">
+          <div>
+            <label for="name" data-key="label-name">Nom</label>
+            <input id="name" placeholder="Votre nom" required />
+            <label for="email" style="margin-top:8px" data-key="label-email">Email</label>
+            <input id="email" type="email" placeholder="votre@exemple.com" required />
+            <label for="phone" style="margin-top:8px" data-key="label-phone">Téléphone</label>
+            <input id="phone" placeholder="+32 492 02 33 02" />
+          </div>
+          <div>
+            <label for="service" data-key="label-service">Type de service</label>
+            <select id="service">
+              <option>Accueil & check-in</option>
+              <option>Ménage</option>
+              <option>Gestion complète</option>
+              <option>Transfert / Courses</option>
+              <option>Autre</option>
+            </select>
+            <label for="message" style="margin-top:8px" data-key="label-message">Message / Informations</label>
+            <textarea id="message" rows="6" placeholder="Décrivez le bien, la période, la surface, la fréquence..."></textarea>
+            <div style="margin-top:10px">
+              <button class="cta" type="submit" data-key="contact-send">Envoyer la demande</button>
+            </div>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap">
+        <div>
+          <div style="font-weight:800">Luberon Harmony — Carole Meyfroid</div>
+          <div class="small">Provence – Luberon • <a href="mailto:contact@luberonharmony.fr">contact@luberonharmony.fr</a></div>
+        </div>
+        <div class="small">© 2025 — Tous droits réservés</div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    const T = {
+      fr: { "hero-title":"Services de conciergerie professionnels pour propriétaires & voyageurs",
+            "hero-lead":"Accueil, gestion de locations saisonnières, ménage, transferts, coordination des prestataires et entretien — service trilingue (FR / EN / NL) et disponibilité immédiate dans le Luberon et la Provence.",
+            "about-fr":"À 40 ans, Belge d’origine mais profondément attachée à la Provence, je suis passionnée par le calme, la beauté et l’art de vivre de cette région. Avec Luberon Harmony, j’allie rigueur et sens du service à une approche humaine et soignée, pour offrir à chaque propriétaire et voyageur une expérience unique, fluide et chaleureuse.",
+            "pricing-note":"Majoration possible pour arrivées tardives, jours fériés ou interventions d'urgence.",
+            "contact-lead":"Envoyez vos informations et je vous répondrai rapidement avec une proposition adaptée.",
+            "label-name":"Nom","label-email":"Email","label-phone":"Téléphone","label-service":"Type de service","label-message":"Message / Informations","contact-send":"Envoyer la demande"},
+      en: { "hero-title":"Professional concierge services for owners & guests",
+            "hero-lead":"Welcome, holiday-rental management, cleaning, transfers, supplier coordination and upkeep — trilingual service (FR / EN / NL) with immediate availability in the Luberon and Provence.",
+            "about-fr":"At 40, originally from Belgium but deeply inspired by the calm and splendor of Provence, I bring precision and genuine care to every detail. Through Luberon Harmony, I combine professionalism with warmth and authenticity to provide a seamless and memorable experience for both owners and guests.",
+            "pricing-note":"Surcharges may apply for late arrivals, holidays or emergency interventions.","contact-lead":"Send your details and I will reply quickly with a tailored proposal.","label-name":"Name","label-email":"Email","label-phone":"Phone","label-service":"Service type","label-message":"Message / Details","contact-send":"Send request"},
+      nl: { "hero-title":"Professionele conciërgediensten voor eigenaren & gasten",
+            "hero-lead":"Ontvangst, beheer van vakantiewoningen, schoonmaak, transfers, coördinatie van leveranciers en onderhoud — tweetalige/trigitale service (FR / EN / NL) met directe beschikbaarheid in de Luberon en Provence.",
+            "about-fr":"Ik ben 40 jaar, afkomstig uit België, maar verliefd op de rust en pracht van de Provence. Met Luberon Harmony combineer ik precisie en betrokkenheid om eigenaars en reizigers een harmonieuze en zorgeloze ervaring te bieden.",
+            "pricing-note":"Toeslagen kunnen van toepassing zijn bij late aankomsten, feestdagen of noodgevallen.","contact-lead":"Stuur uw gegevens en ik reageer snel met een passend voorstel.","label-name":"Naam","label-email":"Email","label-phone":"Telefoon","label-service":"Type dienst","label-message":"Bericht / Informatie","contact-send":"Verstuur aanvraag"}
+    };
+
+    function applyTranslations(lang){
+      document.getElementById('hero-title').innerText = T[lang]['hero-title'];
+      document.getElementById('hero-lead').innerText = T[lang]['hero-lead'];
+      document.querySelector('[data-key="about-fr"]').innerText = T[lang]['about-fr'];
+      document.querySelector('[data-key="pricing-note"]').innerText = T[lang]['pricing-note'];
+      document.querySelector('[data-key="contact-lead"]').innerText = T[lang]['contact-lead'];
+      document.querySelector('[data-key="label-name"]').innerText = T[lang]['label-name'];
+      document.querySelector('[data-key="label-email"]').innerText = T[lang]['label-email'];
+      document.querySelector('[data-key="label-phone"]').innerText = T[lang]['label-phone'];
+      document.querySelector('[data-key="label-service"]').innerText = T[lang]['label-service'];
+      document.querySelector('[data-key="label-message"]').innerText = T[lang]['label-message'];
+      document.querySelector('[data-key="contact-send"]').innerText = T[lang]['contact-send'];
+      document.getElementById('brand-slogan').innerText = (lang==='fr')? "L’harmonie du service, la douceur du Sud" : (lang==='en')? "The art of care, inspired by Provence" : "De kunst van zorg, geïnspireerd door de Provence";
+    }
+
+    document.querySelectorAll('.lang-switch button').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        document.querySelectorAll('.lang-switch button').forEach(b=>b.classList.remove('active'));
+        btn.classList.add('active');
+        const lang = btn.getAttribute('data-lang');
+        document.getElementById('site').setAttribute('data-lang', lang);
+        applyTranslations(lang);
+      });
+    });
+
+    applyTranslations('fr');
+  </script>
+</body>
+</html>
