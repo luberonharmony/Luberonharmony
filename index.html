@@ -61,9 +61,6 @@
     .card{background:var(--card); padding:18px; border-radius:14px; box-shadow:0 6px 18px rgba(20,20,20,0.04)}
     .tarif{display:flex; justify-content:space-between; align-items:center; padding:12px 14px; border-radius:10px; border:1px solid rgba(0,0,0,0.04); background:linear-gradient(180deg, rgba(255,255,255,1), rgba(250,247,242,1))}
 
-    .gallery{display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:8px}
-    .gallery img{width:100%; height:110px; object-fit:cover; border-radius:8px}
-
     /* About */
     .about-card{background:var(--card); padding:18px; border-radius:14px; box-shadow:0 8px 26px rgba(20,20,20,0.05)}
     .about{display:grid; grid-template-columns:140px 1fr; gap:18px; align-items:center}
@@ -97,7 +94,6 @@
   <header>
     <div class="container header-row">
       <div class="brand" aria-hidden="false">
-        <!-- LOGO (intégré en base64 pour ne pas dépendre de fichiers externes) -->
         <img src="data:image/png;base64,/*LOGO_BASE64*/" alt="Luberon Harmony logo" id="site-logo" />
         <div>
           <h1>Luberon Harmony</h1>
@@ -110,14 +106,8 @@
         <a href="#accueil">Accueil</a>
         <a href="#prestations">Prestations</a>
         <a href="#tarifs">Tarifs</a>
-        <a href="#galerie">Galerie</a>
         <a href="#a-propos">À propos</a>
         <a href="#contact">Contact</a>
-        <select class="lang" id="lang-select" aria-label="Sélectionner la langue">
-          <option value="fr">FR</option>
-          <option value="en">EN</option>
-          <option value="nl">NL</option>
-        </select>
       </nav>
     </div>
   </header>
@@ -145,7 +135,6 @@
       </div>
 
       <div class="photo-card" aria-hidden="false">
-        <!-- PHOTO (intégrée en base64) -->
         <img src="data:image/jpeg;base64,/*PHOTO_BASE64*/" alt="Photo de Carole Meyfroid" id="profile-photo" />
       </div>
     </div>
@@ -192,25 +181,11 @@
       <p class="muted" style="margin-top:10px">Tarifs indicatifs — devis personnalisé et forfaits mensuels disponibles. Nous offrons une tarification compétitive tout en conservant un haut niveau de qualité de service.</p>
     </section>
 
-    <!-- Galerie -->
-    <section id="galerie" class="content">
-      <h2 style="color:var(--accent)">Galerie (ambiance)</h2>
-      <div class="gallery" style="margin-top:10px">
-        <img src="https://picsum.photos/seed/101/800/600" alt="ambiance1" />
-        <img src="https://picsum.photos/seed/102/800/600" alt="ambiance2" />
-        <img src="https://picsum.photos/seed/103/800/600" alt="ambiance3" />
-        <img src="https://picsum.photos/seed/104/800/600" alt="ambiance4" />
-        <img src="https://picsum.photos/seed/105/800/600" alt="ambiance5" />
-        <img src="https://picsum.photos/seed/106/800/600" alt="ambiance6" />
-      </div>
-    </section>
-
     <!-- À propos -->
     <section id="a-propos" class="content">
       <h2 style="color:var(--accent)">À propos</h2>
       <div class="about-card" style="margin-top:12px">
         <div class="about">
-          <img src="data:image/jpeg;base64,/*PHOTO_BASE64*/" alt="Portrait Carole Meyfroid" />
           <div>
             <h3>Carole Meyfroid — Fondatrice</h3>
             <p class="muted" style="white-space:pre-line">
@@ -270,111 +245,5 @@
       </div>
     </div>
   </footer>
-
-  <script>
-    // --- CONFIG ---
-    // Si tu veux utiliser Formspree : colle ton endpoint ici (ex: "https://formspree.io/f/xxxxx")
-    const FORM_ENDPOINT = ""; // <--- mets ton endpoint Formspree si tu veux l'activer
-    const CONTACT_EMAIL = "luberonharmony.pro@gmail.com";
-
-    // --- Insert base64 images (injected server-side by the assistant) ---
-    (function replacePlaceholders(){
-      // NOTE: placeholders were used above to keep HTML readable.
-      // This block will replace placeholders with actual data inserted below.
-    })();
-
-    // set current year
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Language texts
-    const TEXTS = {
-      fr: {
-        heroTitle: "Bienvenue sur le site officiel de Luberon Harmony",
-        heroSub: "Votre conciergerie haut de gamme au cœur du Luberon. Expertise locale, accompagnement personnalisé, attention aux détails.",
-        btnContact: "Contact / Demande",
-        btnServices: "Découvrir nos prestations",
-        sendText: "Envoyer la demande"
-      },
-      en: {
-        heroTitle: "Welcome to the official site of Luberon Harmony",
-        heroSub: "High-end concierge service in the heart of the Luberon. Local expertise, personalized support and attention to every detail.",
-        btnContact: "Contact / Request",
-        btnServices: "Discover our services",
-        sendText: "Send request"
-      },
-      nl: {
-        heroTitle: "Welkom op de officiële site van Luberon Harmony",
-        heroSub: "Privé conciërgeservice in het hart van de Luberon. Lokale expertise, persoonlijke begeleiding en aandacht voor elk detail.",
-        btnContact: "Contact / Aanvraag",
-        btnServices: "Ontdek onze diensten",
-        sendText: "Verzenden"
-      }
-    };
-
-    // language handling
-    const langSelect = document.getElementById('lang-select');
-    let lang = localStorage.getItem('lh_lang') || 'fr';
-    langSelect.value = lang;
-    applyLanguage(lang);
-    document.getElementById('lang-field').value = lang;
-
-    langSelect.addEventListener('change', (e) => {
-      lang = e.target.value;
-      localStorage.setItem('lh_lang', lang);
-      applyLanguage(lang);
-      document.getElementById('lang-field').value = lang;
-    });
-
-    function applyLanguage(l){
-      const t = TEXTS[l] || TEXTS.fr;
-      document.getElementById('hero-title').textContent = t.heroTitle;
-      document.getElementById('hero-sub').textContent = t.heroSub;
-      document.getElementById('btn-contact').textContent = t.btnContact;
-      document.getElementById('btn-services').textContent = t.btnServices;
-      // update form button
-      const formBtn = document.querySelector('#contact .btn') || document.querySelector('button[type="submit"].btn');
-      if(formBtn) formBtn.textContent = t.sendText;
-    }
-
-    // Contact form
-    const form = document.getElementById('contact-form');
-    form.addEventListener('submit', function(e){
-      e.preventDefault();
-      const f = new FormData(form);
-      // If Formspree endpoint provided, POST there
-      if(FORM_ENDPOINT && FORM_ENDPOINT.length>8){
-        fetch(FORM_ENDPOINT, {method:'POST', body:f, headers:{'Accept':'application/json'}})
-          .then(res => {
-            if(res.ok){ alert('Message envoyé — merci !'); form.reset(); }
-            else { alert('Erreur envoi — ouverture du mail client.'); openMailClient(f); }
-          })
-          .catch(()=> { alert('Erreur envoi — ouverture du mail client.'); openMailClient(f); });
-      } else {
-        openMailClient(f);
-      }
-    });
-
-    function openMailClient(formData){
-      const name = encodeURIComponent(formData.get('name') || '');
-      const email = encodeURIComponent(formData.get('email') || '');
-      const service = encodeURIComponent(formData.get('service') || '');
-      const message = encodeURIComponent(formData.get('message') || '');
-      const subject = encodeURIComponent('Demande via site - Luberon Harmony');
-      const body = encodeURIComponent(`Nom: ${name}\nEmail: ${email}\nService: ${service}\n\nMessage:\n${message}`);
-      window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
-    }
-
-    // smooth anchor scroll
-    document.querySelectorAll('a[href^="#"]').forEach(a=>{
-      a.addEventListener('click', function(e){
-        const href = this.getAttribute('href');
-        if(href.startsWith('#')){
-          e.preventDefault();
-          const el = document.querySelector(href);
-          if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
-        }
-      });
-    });
-  </script>
 </body>
 </html>
