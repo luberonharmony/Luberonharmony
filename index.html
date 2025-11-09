@@ -70,7 +70,7 @@
     textarea{min-height:120px; resize:vertical}
     .note{font-size:13px; color:var(--muted)}
 
-    footer{padding:28px 0; border-top:1px solid rgba(0,0,0,0.04); text-align:center; color:var(--muted); font-size:14px}
+    footer{padding:28px 0; border-top:1px solid rgba(0,0,0,0.04); text-align:center; color:var(--muted); font-size:14px; display:flex; justify-content:center;}
 
     /* Responsive */
     @media (max-width:980px){
@@ -90,7 +90,7 @@
     <div class="container header-row">
       <div class="brand" aria-hidden="false">
         <!-- LOGO ajouté ici -->
-        <img src="data:image/png;base64,/9j/4AAQSkZJRgABAQAASABIAAD/4QDSRXhpZgAATU0AKgAAAAgABgESAAMAAAABAAEAAAEaAAUAAAABAAAAVgEbAAUAAAABAAAA..." alt="Luberon Harmony logo" id="site-logo" />
+        <img src="data:image/png;base64,/*LOGO_BASE64*/" alt="Luberon Harmony logo" id="site-logo" />
         <div>
           <h1>Luberon Harmony</h1>
           <div style="font-size:13px; color:var(--muted)">Conciergerie & services haut de gamme dans le Luberon</div>
@@ -132,7 +132,7 @@
 
       <!-- Photo personnelle ajoutée ici sous la présentation -->
       <div class="photo-card" aria-hidden="false">
-        <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAASABIAAD/4QDSRXhpZgAATU0AKgAAAAgABgESAAMAAAABAAEAAAEaAAUAAAABAAAAVgEbAAUAAAABAAAA..." alt="Photo de Carole Meyfroid" id="profile-photo" />
+        <img src="data:image/jpeg;base64,/*PHOTO_BASE64*/" alt="Photo de Carole Meyfroid" id="profile-photo" />
       </div>
     </div>
   </section>
@@ -161,21 +161,6 @@
           <p class="muted">Courses, fleurs, organisation d'expériences locales, coordination avec prestataires de confiance.</p>
         </div>
       </div>
-    </section>
-
-    <!-- Tarifs -->
-    <section id="tarifs" class="content">
-      <h2 style="color:var(--accent)">Tarifs & positionnement</h2>
-      <p class="muted">Nous nous alignons sur le marché, en proposant une offre compétitive et transparente.</p>
-
-      <div style="margin-top:12px; display:grid; gap:10px; grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">
-        <div class="tarif"><div>Gestion locative (commission)</div><div><strong>18 %</strong></div></div>
-        <div class="tarif"><div>Accueil / Check-in (forfait)</div><div><strong>À partir de 50 €</strong></div></div>
-        <div class="tarif"><div>Ménage standard</div><div><strong>À partir de 60 €</strong></div></div>
-        <div class="tarif"><div>Supervision / passage</div><div><strong>À partir de 40 €</strong></div></div>
-      </div>
-
-      <p class="muted" style="margin-top:10px">Tarifs indicatifs — devis personnalisé et forfaits mensuels disponibles. Nous offrons une tarification compétitive tout en conservant un haut niveau de qualité de service.</p>
     </section>
 
     <!-- Contact -->
@@ -214,7 +199,7 @@
   </main>
 
   <footer>
-    <div class="container" style="display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap">
+    <div class="container" style="display:flex; justify-content:center; gap:12px; flex-wrap:wrap">
       <div>
         <strong>Luberon Harmony — Carole Meyfroid</strong><br />
         <span class="muted">Provence — Luberon</span>
