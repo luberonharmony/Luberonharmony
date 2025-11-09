@@ -1,107 +1,386 @@
 <!doctype html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Luberon Harmony — harmonie intérieure, soins énergétiques et bien-être dans le Luberon." />
-    <title>Luberon Harmony</title>
-    <link rel="icon" type="image/png" href="logo.png" />
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Luberon Harmony</title>
+  <meta name="description" content="Luberon Harmony - Conciergerie haut de gamme dans le Luberon. Contact : luberonharmony.pro@gmail.com" />
+  <link rel="icon" href="logo.png" />
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap" rel="stylesheet" />
-    <style>
-      body {
-        font-family: 'Raleway', sans-serif;
-        color: #333;
-        margin: 0;
-        background-color: #fff;
-        line-height: 1.6;
-      }
-      header {
-        text-align: center;
-        padding: 2rem 1rem;
-      }
-      header img {
-        width: 100px;
-        height: auto;
-      }
-      h1 {
-        color: #8a7962;
-        font-size: 2rem;
-      }
-      main {
-        max-width: 700px;
-        margin: auto;
-        padding: 1rem;
-      }
-      section {
-        margin-bottom: 2rem;
-      }
-      img.photo {
-        width: 100%;
-        border-radius: 8px;
-        margin-top: 1rem;
-      }
-      form input, form textarea {
-        width: 100%;
-        margin-bottom: 1rem;
-        padding: 0.8rem;
-        border: 1px solid #ccc;
-        border-radius: 6px;
-        font-family: inherit;
-      }
-      form button {
-        background-color: #8a7962;
-        color: #fff;
-        border: none;
-        padding: 0.8rem 1.5rem;
-        border-radius: 6px;
-        font-size: 1rem;
-        cursor: pointer;
-      }
-      footer {
-        text-align: center;
-        padding: 1rem;
-        font-size: 0.9rem;
-        color: #777;
-        border-top: 1px solid #eee;
-      }
-    </style>
-  </head>
+  <style>
+    :root{
+      --bg:#fffaf6;
+      --muted:#6d5f4a;
+      --accent:#8a7962;
+      --card:#fff;
+      --round:14px;
+      --maxw:1100px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background:var(--bg);
+      color: #2b2b2b;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+    a{color:var(--accent); text-decoration:none}
+    header{
+      border-bottom:1px solid rgba(138,121,98,0.12);
+      background:rgba(255,255,255,0.8);
+      backdrop-filter: blur(4px);
+      position:sticky; top:0; z-index:50;
+    }
+    .container{max-width:var(--maxw); margin:0 auto; padding:20px;}
+    .header-inner{display:flex; align-items:center; justify-content:space-between; gap:16px;}
+    .brand{display:flex; align-items:center; gap:14px}
+    .brand img{height:56px; width:56px; object-fit:contain; border-radius:8px}
+    .brand h1{margin:0; font-size:20px; color:var(--accent); letter-spacing:0.2px}
+    nav {display:flex; gap:12px; align-items:center; font-size:14px}
+    nav a{padding:8px 10px; border-radius:10px}
+    nav a:hover{background:rgba(138,121,98,0.08)}
+    select.lang{border:1px solid rgba(0,0,0,0.08); padding:6px 8px; border-radius:8px; background:white}
 
-  <body>
-    <header>
-      <img src="logo.png" alt="Logo Luberon Harmony" />
-      <h1>Luberon Harmony</h1>
-      <p>Harmonie intérieure & bien-être énergétique</p>
-    </header>
+    /* Hero */
+    .hero{padding:42px 0; display:flex; gap:32px; align-items:center; justify-content:center;}
+    .hero-grid{display:grid; grid-template-columns:1fr 420px; gap:36px; align-items:center; width:100%; max-width:var(--maxw);}
+    .intro{background:var(--card); padding:28px; border-radius:var(--round); box-shadow:0 6px 20px rgba(30,30,30,0.06)}
+    .intro h2{margin:0 0 8px; font-size:26px; color:var(--accent)}
+    .intro p.lead{margin:0 0 12px; color:var(--muted)}
+    .cta-row{margin-top:12px; display:flex; gap:10px}
+    .btn{background:var(--accent); color:white; padding:10px 16px; border-radius:12px; border:none; cursor:pointer}
+    .btn.alt{background:transparent; color:var(--accent); border:1px solid rgba(138,121,98,0.12)}
+    .photo-card{border-radius:18px; overflow:hidden; box-shadow:0 10px 30px rgba(30,30,30,0.08)}
+    .photo-card img{width:100%; height:420px; object-fit:cover; display:block}
 
-    <main>
-      <section>
-        <h2>À propos</h2>
-        <p>
-          Bienvenue chez <strong>Luberon Harmony</strong> — un espace dédié à l’équilibre, la détente et la reconnexion à soi.
-          Découvrez les bienfaits des soins énergétiques et du lâcher-prise dans un cadre apaisant au cœur du Luberon.
-        </p>
-        <img src="carole.jpg" alt="Carole - praticienne Luberon Harmony" class="photo" />
-      </section>
+    /* Sections */
+    section.content{max-width:var(--maxw); margin:40px auto; padding:0 20px}
+    .grid-2{display:grid; grid-template-columns:1fr 1fr; gap:20px}
+    .cards{display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:16px}
+    .card{background:var(--card); padding:16px; border-radius:12px; box-shadow:0 6px 18px rgba(20,20,20,0.04)}
+    .tarif{display:flex; justify-content:space-between; align-items:center; padding:12px 14px; border-radius:10px; border:1px solid rgba(0,0,0,0.04); background:linear-gradient(180deg, rgba(255,255,255,1), rgba(250,247,242,1))}
+    .gallery{display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:8px}
+    .gallery img{width:100%; height:120px; object-fit:cover; border-radius:8px}
 
-      <section>
-        <h2>Contact</h2>
-        <form action="mailto:luberonharmony.ple@gmail.com" method="post" enctype="text/plain">
-          <input type="text" name="name" placeholder="Nom / Name" required />
-          <input type="email" name="email" placeholder="Email" required />
-          <textarea name="message" rows="4" placeholder="Message" required></textarea>
-          <button type="submit">Envoyer</button>
+    /* About */
+    .about{display:grid; grid-template-columns:120px 1fr; gap:18px; align-items:center}
+    .about img{width:120px; height:120px; object-fit:cover; border-radius:12px; border:2px solid rgba(138,121,98,0.06)}
+    .about h3{margin:0; color:var(--accent)}
+    .muted{color:var(--muted)}
+
+    /* Contact */
+    .contact-card{background:var(--card); padding:18px; border-radius:14px; box-shadow:0 6px 20px rgba(30,30,30,0.05)}
+    .form-row{display:grid; grid-template-columns:1fr 1fr; gap:10px}
+    input[type="text"], input[type="email"], textarea, select{
+      width:100%; padding:10px; border-radius:8px; border:1px solid rgba(0,0,0,0.08); font-size:14px;
+    }
+    textarea{min-height:120px; resize:vertical}
+    .note{font-size:13px; color:var(--muted)}
+
+    footer{padding:28px 0; border-top:1px solid rgba(0,0,0,0.04); text-align:center; color:var(--muted); font-size:14px}
+
+    /* Responsive */
+    @media (max-width:900px){
+      .hero-grid{grid-template-columns:1fr; }
+      .photo-card img{height:260px}
+      .about{grid-template-columns:1fr; text-align:left}
+      .about img{margin:0 auto}
+    }
+    @media (max-width:520px){
+      nav{display:none}
+      .header-inner{justify-content:space-between}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container header-inner">
+      <div class="brand">
+        <img src="logo.png" alt="Luberon Harmony logo" id="site-logo" />
+        <div>
+          <h1>Luberon Harmony</h1>
+          <div class="muted" style="font-size:13px">Conciergerie & services haut de gamme dans le Luberon</div>
+        </div>
+      </div>
+
+      <nav aria-label="Menu principal">
+        <a href="#accueil">Accueil</a>
+        <a href="#prestations">Prestations</a>
+        <a href="#tarifs">Tarifs</a>
+        <a href="#galerie">Galerie</a>
+        <a href="#a-propos">À propos</a>
+        <a href="#contact">Contact</a>
+        <select class="lang" id="lang-select" aria-label="Sélectionner la langue">
+          <option value="fr">FR</option>
+          <option value="en">EN</option>
+          <option value="nl">NL</option>
+        </select>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO / Accueil -->
+  <section id="accueil" class="hero">
+    <div class="hero-grid">
+      <div class="intro">
+        <h2 id="hero-title">Bienvenue sur le site officiel de Luberon Harmony</h2>
+        <p class="lead" id="hero-sub">Votre conciergerie haut de gamme au cœur du Luberon. Nous mettons à votre service une expertise locale, un accompagnement personnalisé et une attention sincère à chaque détail.</p>
+
+        <div style="margin-top:12px">
+          <p id="intro-presentation" class="muted" style="white-space:pre-line">
+            Carole Meyfroid — Fondatrice
+
+            À 40 ans, Belge d’origine mais profondément attachée à la Provence, je suis passionnée par le calme, la beauté et l’art de vivre de cette région. Avec Luberon Harmony, j’allie rigueur et sens du service à une approche humaine et soignée, pour offrir à chaque propriétaire et voyageur une expérience unique, fluide et chaleureuse.
+
+            L’harmonie du service, la douceur du Sud
+          </p>
+          <div class="cta-row">
+            <a class="btn" href="#contact" id="btn-contact">Contact / Demande</a>
+            <a class="btn alt" href="#prestations" id="btn-services">Découvrir nos prestations</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="photo-card" aria-hidden="false">
+        <img src="photo.jpg" alt="Photo de Carole Meyfroid" id="profile-photo" />
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTENT -->
+  <main>
+    <section id="prestations" class="content">
+      <h2 style="color:var(--accent)">Prestations</h2>
+      <p class="muted">Services sur-mesure adaptés aux propriétaires et voyageurs.</p>
+
+      <div class="cards" style="margin-top:14px">
+        <div class="card">
+          <h4>Accueil & check-in</h4>
+          <p class="muted">Remise des clés, briefing des voyageurs et livret d’accueil personnalisé.</p>
+        </div>
+        <div class="card">
+          <h4>Ménage & préparation</h4>
+          <p class="muted">Ménage professionnel entre séjours, gestion du linge et approvisionnement.</p>
+        </div>
+        <div class="card">
+          <h4>Gestion locative</h4>
+          <p class="muted">Optimisation des annonces, communication et gestion des réservations.</p>
+        </div>
+        <div class="card">
+          <h4>Conciergerie sur-mesure</h4>
+          <p class="muted">Réservations restaurants, expériences locales, services traiteur, transferts.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="tarifs" class="content">
+      <h2 style="color:var(--accent)">Tarifs indicatifs</h2>
+      <div style="margin-top:12px; display:grid; gap:10px; grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">
+        <div class="tarif"><div>Forfait accueil / check-in</div><div><strong>40–60 €</strong></div></div>
+        <div class="tarif"><div>Ménage standard</div><div><strong>60–80 €</strong></div></div>
+        <div class="tarif"><div>Gestion locative (mensuel)</div><div><strong>À partir de 150 €</strong></div></div>
+      </div>
+      <p class="muted" style="margin-top:10px">Les tarifs sont indicatifs. Contactez-nous pour un devis précis et personnalisé.</p>
+    </section>
+
+    <section id="galerie" class="content">
+      <h2 style="color:var(--accent)">Galerie</h2>
+      <div class="gallery" style="margin-top:10px">
+        <!-- Si tu veux, remplace les images par les tiennes -->
+        <img src="https://picsum.photos/seed/1/600/400" alt="gal1" />
+        <img src="https://picsum.photos/seed/2/600/400" alt="gal2" />
+        <img src="https://picsum.photos/seed/3/600/400" alt="gal3" />
+        <img src="https://picsum.photos/seed/4/600/400" alt="gal4" />
+        <img src="https://picsum.photos/seed/5/600/400" alt="gal5" />
+        <img src="https://picsum.photos/seed/6/600/400" alt="gal6" />
+      </div>
+    </section>
+
+    <section id="a-propos" class="content">
+      <h2 style="color:var(--accent)">À propos</h2>
+      <div class="card" style="margin-top:12px">
+        <div class="about">
+          <img src="photo.jpg" alt="Portrait Carole Meyfroid" />
+          <div>
+            <h3>Carole Meyfroid — Fondatrice</h3>
+            <p class="muted" style="white-space:pre-line">
+              À 40 ans, Belge d’origine mais profondément attachée à la Provence, je suis passionnée par le calme, la beauté et l’art de vivre de cette région. Avec Luberon Harmony, j’allie rigueur et sens du service à une approche humaine et soignée, pour offrir à chaque propriétaire et voyageur une expérience unique, fluide et chaleureuse.
+
+              L’harmonie du service, la douceur du Sud
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="content">
+      <h2 style="color:var(--accent)">Contact & Demande de devis</h2>
+      <p class="muted">Remplissez le formulaire ci-dessous ou envoyez-nous un e-mail : <a id="mailto-link" href="mailto:luberonharmony.pro@gmail.com">luberonharmony.pro@gmail.com</a></p>
+
+      <div class="contact-card" style="margin-top:12px">
+        <form id="contact-form">
+          <input type="hidden" id="lang-field" name="lang" value="fr" />
+          <div class="form-row" style="margin-bottom:10px">
+            <input type="text" name="name" placeholder="Nom" required />
+            <input type="email" name="email" placeholder="Email" required />
+          </div>
+          <div style="margin-bottom:10px">
+            <select name="service" aria-label="Service souhaité">
+              <option>Accueil & check-in</option>
+              <option>Ménage & préparation</option>
+              <option>Gestion locative</option>
+              <option>Conciergerie sur-mesure</option>
+            </select>
+          </div>
+          <div style="margin-bottom:12px">
+            <textarea name="message" placeholder="Votre message / demandes" required></textarea>
+          </div>
+
+          <div style="display:flex; gap:12px; align-items:center">
+            <button type="submit" class="btn">{Envoyer}</button>
+            <div class="note">Nous utilisons Formspree pour recevoir vos messages. Si non configuré, le formulaire s'ouvrira via votre application mail.</div>
+          </div>
         </form>
-      </section>
-    </main>
+      </div>
+    </section>
+  </main>
 
-    <footer>
-      © <script>document.write(new Date().getFullYear())</script> Luberon Harmony — Tous droits réservés
-    </footer>
-  </body>
+  <footer>
+    <div class="container">
+      <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap">
+        <div>
+          <strong>Luberon Harmony — Carole Meyfroid</strong><br />
+          <span class="muted">Provence — Luberon</span>
+        </div>
+        <div>
+          <a id="footer-mail" href="mailto:luberonharmony.pro@gmail.com">luberonharmony.pro@gmail.com</a><br />
+          <small class="muted">© <span id="year"></span> — Tous droits réservés</small>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // CONFIG : si tu veux, remplace par ton endpoint Formspree
+    const FORM_ENDPOINT = ""; // ex: "https://formspree.io/f/xxxxx" — si vide, on utilisera mailto fallback
+    const CONTACT_EMAIL = "luberonharmony.pro@gmail.com";
+
+    // set current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // language texts
+    const TEXTS = {
+      fr: {
+        heroTitle: "Bienvenue sur le site officiel de Luberon Harmony",
+        heroSub: "Votre conciergerie haut de gamme au cœur du Luberon. Nous mettons à votre service une expertise locale, un accompagnement personnalisé et une attention sincère à chaque détail.",
+        harmonyText: "L’harmonie du service, la douceur du Sud",
+        aboutTitle: "À propos",
+        servicesTitle: "Prestations",
+        pricesTitle: "Tarifs",
+        contactTitle: "Contact & Demande de devis",
+        btnContact: "Contact / Demande",
+        btnServices: "Découvrir nos prestations",
+        sendText: "Envoyer la demande"
+      },
+      en: {
+        heroTitle: "Welcome to the official site of Luberon Harmony",
+        heroSub: "High-end concierge service in the heart of the Luberon. Local know-how, personalized support and careful attention to every detail.",
+        harmonyText: "The harmony of service, the softness of the South",
+        aboutTitle: "About",
+        servicesTitle: "Services",
+        pricesTitle: "Pricing",
+        contactTitle: "Contact & Request a quote",
+        btnContact: "Contact / Request",
+        btnServices: "Discover our services",
+        sendText: "Send request"
+      },
+      nl: {
+        heroTitle: "Welkom op de officiële site van Luberon Harmony",
+        heroSub: "Privé conciërgeservice in het hart van de Luberon. Lokale expertise, persoonlijke begeleiding en aandacht voor elk detail.",
+        harmonyText: "De harmonie van service, de zachtheid van het zuiden",
+        aboutTitle: "Over mij",
+        servicesTitle: "Diensten",
+        pricesTitle: "Tarieven",
+        contactTitle: "Contact & Offerte aanvragen",
+        btnContact: "Contact / Aanvraag",
+        btnServices: "Ontdek onze diensten",
+        sendText: "Verzenden"
+      }
+    };
+
+    // set initial language and wire selector
+    const langSelect = document.getElementById('lang-select');
+    let lang = localStorage.getItem('lh_lang') || 'fr';
+    langSelect.value = lang;
+    applyLanguage(lang);
+    document.getElementById('lang-field').value = lang;
+    langSelect.addEventListener('change', (e)=> {
+      lang = e.target.value;
+      localStorage.setItem('lh_lang', lang);
+      applyLanguage(lang);
+      document.getElementById('lang-field').value = lang;
+    });
+
+    function applyLanguage(l){
+      const t = TEXTS[l] || TEXTS.fr;
+      document.getElementById('hero-title').textContent = t.heroTitle;
+      document.getElementById('hero-sub').textContent = t.heroSub;
+      document.getElementById('intro-presentation').textContent = document.getElementById('intro-presentation').textContent; // keep original presentation (already in FR)
+      document.getElementById('btn-contact').textContent = t.btnContact;
+      document.getElementById('btn-services').textContent = t.btnServices;
+
+      // change placeholders / send button label in contact form
+      const sendBtn = document.querySelector('#contact .btn');
+      if(sendBtn) sendBtn.textContent = t.sendText;
+    }
+
+    // Contact form handling
+    const form = document.getElementById('contact-form');
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      const data = new FormData(form);
+      data.append('to', CONTACT_EMAIL);
+
+      if(FORM_ENDPOINT && FORM_ENDPOINT.length>5){
+        // send to Formspree via fetch
+        fetch(FORM_ENDPOINT, {method:'POST', body:data, headers:{'Accept':'application/json'}})
+          .then(res=>{
+            if(res.ok){ alert('Message envoyé — merci !'); form.reset(); }
+            else { alert('Erreur lors de l\'envoi. Utilisation du mailto.'); doMailto(); }
+          })
+          .catch(()=>{ alert('Erreur lors de l\'envoi. Utilisation du mailto.'); doMailto(); });
+      } else {
+        // fallback: open mailto with prefilled body (works on device with mail client)
+        doMailto();
+      }
+    });
+
+    function doMailto(){
+      // build a mailto: link
+      const f = new FormData(form);
+      const name = encodeURIComponent(f.get('name') || '');
+      const email = encodeURIComponent(f.get('email') || '');
+      const service = encodeURIComponent(f.get('service') || '');
+      const message = encodeURIComponent(f.get('message') || '');
+      const subject = encodeURIComponent('Demande via site - Luberon Harmony');
+      const body = encodeURIComponent(`Nom: ${name}%0AEmail: ${email}%0AService: ${service}%0A%0AMessage:%0A${message}`);
+      window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
+    }
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', function(e){
+        const href = this.getAttribute('href');
+        if(href.startsWith('#')){
+          e.preventDefault();
+          const el = document.querySelector(href);
+          if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+        }
+      });
+    });
+  </script>
+</body>
 </html>
+
 
